@@ -1,8 +1,8 @@
 {
-  "name": "Piece of help ",
+  "name": "pieceofhelp",
   "version": "0.0.1",
-  "description": "Share your love,warm my heart!",
-  "main": "index.js",
+  "description": "Share your love",
+  "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -10,12 +10,12 @@
     "type": "git",
     "url": "https://github.com/pieceofhelp/Piece-of-help"
   },
-  "author": "Hsin-Chieh Wu",
+  "author": "Hsin-Chieh",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/pieceofhelp/Piece-of-help/issues"
   },
-  "homepage": "pieceofhelp.github.io",
+  "homepage": "https://github.com/pieceofhelp/Piece-of-help",
   "dependencies": {
     "connect-flash": "*",
     "ejs": "*",
