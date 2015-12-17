@@ -1,0 +1,192 @@
+/*!
+ * Bootstrap v2.3.2
+ *
+ * Copyright 2013 Twitter, Inc
+ * Licensed under the Apache License v2.0
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Designed and built with all the love in the world @twitter by @mdo and @fat.
+ */
+@charset utf-8;
+
+html, body {
+  background: #f4f4f4;
+  font-family: "蘋果儷中黑", "Apple LiGothic", "Apple LiGothic Medium", "Microsoft JhengHei", "微軟正黑體", sans-serif;
+  height: 100%;
+}
+.top{
+/*  min-height: 130%;
+  padding-bottom: 400px;
+  display: block;
+  width: 100%; 
+  height: 80px;
+  z-index: 1;
+  margin-left: auto; 
+  margin-right: auto;*/
+}
+.title{
+
+/*  display: block;*/
+/*  border : 1px solid red;*/
+  background: #8A0808;
+  width: 100%; 
+  height: 92px;
+  margin-left: auto; 
+  margin-right: auto;
+  text-align: center;
+  padding-top: 30px;
+  font-size: 45px;
+  font-weight: bold;
+  color: #FFFFFF;
+  position:absolute;
+}
+
+.short_intro{
+  /*display: inline-block;*/
+
+  width: 600px; height: 37px;
+  position:absolute;
+    /*border : 1px solid red;*/
+
+    left:50%;
+    margin-left: -300px;
+
+    margin-top: 330px;
+
+    text-align: center;
+    /*font-weight: bold;*/
+    font-size: 22px;
+    color: #0B173B;
+
+}
+
+.enter{
+  display: inline-block;
+  width: 400px; height: 37px;
+
+  position:absolute;
+    /*border : 1px solid red;*/
+    left:50%;
+    margin-left: -200px;
+
+    margin-top: 400px;
+    border-radius: 4px;
+    background: #088A85;
+
+    text-align: center;
+    padding-top: 10px;
+    font-weight: bold;
+    font-size: 22px;
+    color: #FFFFFF;
+
+}
+
+
+/*////////////////////////////////////////////////////////////*/
+.flow{
+  background-color: white;
+}
+.about_us{
+  display: block;
+/*  border : 1px solid red;*/
+  background: #faf6d6;
+  width: 100%; height: 700px; 
+  margin-left: auto; 
+  margin-right: auto;
+}
+
+.us_title{
+  /*display: inline-block;*/
+
+  width: 600px; height: 37px;
+  position:absolute;
+    /*border : 1px solid red;*/
+
+    left:50%;
+    margin-left: -300px;
+
+    margin-top: 100px;
+
+    text-align: center;
+    font-weight: bold;
+    font-size: 70px;
+    /*color: #084B8A;*/
+
+}
+
+
+.member{
+  position:absolute;
+
+  width: 240px;
+  margin-top: 250px;
+
+  text-align: center;
+  padding-top: 10px;
+
+}
+
+.member1{
+
+  left:50%;
+  margin-left: -520px;
+}
+
+.member2{
+
+  left:50%;
+  margin-left: -120px;
+}
+.member3{
+
+  left:50%;
+  margin-left: 280px;
+}
+
+.name{
+
+  font-weight: bold;
+  font-size: 22px;
+  color: #084B8A;
+}
+
+/*////////////////////////////////////////////////////////////*/
+
+.intro_title{
+  /*display: inline-block;*/
+
+  width: 600px; height: 37px;
+  position:absolute;
+    /*border : 1px solid red;*/
+
+    left:50%;
+    margin-left: -300px;
+
+    margin-top: 330px;
+
+    text-align: center;
+    font-weight: bold;
+    font-size: 60px;
+    color: #f4f4f4;
+
+}
+
+.intro{
+  /*display: inline-block;*/
+
+  width: 600px; height: 37px;
+  position:absolute;
+    /*border : 1px solid red;*/
+
+    left:50%;
+    margin-left: -300px;
+
+    margin-top: 470px;
+
+    text-align: center;
+    /*font-weight: bold;*/
+    font-size: 22px;
+    color: #f4f4f4;
+
+}
+
