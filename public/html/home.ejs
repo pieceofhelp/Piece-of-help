@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+<% include header.ejs %>
+  <body> 
+    <ul class="nav nav-tabs black">
+      <li class="active">
+        <a class="fui-user" href="#" id="trade"> 自由交易</a>
+      </li>
+      <li><a class="fui-heart" href="#" id="charity"> 公益特區</a></li>
+    </ul>
+    <div class="container-fluid">
+      <!--Content and sidebar-->
+      <div class="row row-offcanvas row-offcanvas-left">
+        <div class="col-sm-3 col-md-2 sidebar-offcanvas" id="sidebar" role="navigation">
+          <br>
+          <!--Sidebar content-->
+          <ul class="nav nav-sidebar">
+            <li><a href="#" id="latest">最新</a></li>
+            <li><a href="#" id="cloth">衣物</a></li>
+            <li><a href="#" id="house">家電</a></li>
+            <li><a href="#" id="stationary">文具</a></li>
+            <li><a href="#" id="food">食品</a></li>
+            <li><a href="#" id="furniture">傢俱</a></li>
+            <li><a href="#" id="threeC">3C產品</a></li>
+            <li><a href="#" id="kitchen">廚房用具</a></li>
+            <li><a href="#" id="clean">清潔用具</a></li>
+          </ul>
+        </div>
+        <div class="col-sm-9 col-md-10 main content">
+          <ul class="modify">
+          </ul>
+        </div>
+    
+    <!-- Prompt login dialog Modal -->
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="text-center">Login</h1>
+          </div>
+          <div class="modal-body">
+            <form action="/user/login" class="form col-md-12 center-block" method="POST">
+              <div class="form-group">
+                <input name="id" type="text" class="form-control input-lg" placeholder="Account" id="account">
+              </div>
+              <div class="form-group">
+                <input name="password" type="password" class="form-control input-lg" placeholder="Password" id="password">
+              </div>
+              <div class="form-group">
+                <button type="submit" class="btn btn-primary btn-lg btn-block" id="signIn">Sign In</button>
+                <span class="pull-left" data-toggle="modal" data-target="#myModal2"><a href="#" onclick="$('#myModal').modal('hide')">Don't have an account? Register!</a></span>
+              </div>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <div class="col-md-12">
+              <button class="btn" data-dismiss="modal" aria-hidden="true">Cancel</button>
+            </div>  
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+    <div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="text-center">Register</h1>
+          </div>
+          <div class="modal-body">
+
+            
+            <form action="/user" class="form center-block" method="POST">
+              <div class="form-group">
+                <input name="id" type="text" class="form-control input-lg" placeholder="Account" id="account">
+              </div>
+              <div class="form-group">
+                <input name="password" type="password" class="form-control input-lg" placeholder="Password" id="password">
+              </div>
+              <div class="form-group">
+                <input name="name" type="text" class="form-control input-lg" placeholder="Name" id="name">
+              </div>
+              <div class="form-group">
+                <input name="email" type="text" class="form-control input-lg" placeholder="Email Address" id="email">
+              </div>
+              <div class="form-group">
+                <input name="tel" type="text" class="form-control input-lg" placeholder="Telephone Number" id="tel">
+              </div>
+              <div class="form-group">
+                <button type="submit" class="btn btn-primary btn-lg btn-block" id="signIn">Register</button>
+              </div>
+            </form>
+
+
+          </div>
+          <div class="modal-footer">
+            <div class="col-md-12">
+              <button class="btn" data-dismiss="modal" aria-hidden="true">Cancel</button>
+            </div>  
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Prompt login dialog modal end -->
+
+
+    <style>
+    .treasure{
+      position: fixed;
+      bottom: 10px;
+      right: 10px;
+      padding: 2px 20px 10px 20px;
+      border-radius: 5px;
+      background-color: #dc502b;
+      color: white;
+    }
+    </style>
+    <div class="treasure" data-toggle="modal" data-target="#CreditModal">
+      <h6>聚寶盆</h6>
+      <span>credit : <%= credit%></span>
+    </div>
+
+    <div class="modal fade" id="CreditModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="text-center">Donate Credit!</h1>
+          </div>
+          <div class="modal-body">
+            <% if(!user){ %>
+			  <span data-toggle="modal" data-target="#myModal"><a href="#" onclick="$('#CreditModal').modal('hide')">請先登入!</span>
+			  <!-- <li data-toggle="modal" data-target="#myModal"><a href="#" onclick="$('#CreditModal').modal('hide')">Login</a></li> -->
+            <% }else{ %>
+              <span>您目前擁有: <%= user.credit%> credit<br></span>
+              <form action="/donate" class="form center-block" method="POST"> 
+              想捐多少credit:
+                <div class="form-group">
+                  <input name="donate" type="text" class="form-control input-lg" placeholder="50" id="donate">
+                </div>
+                <div class="form-group">
+                  <button type="submit" class="btn btn-primary btn-lg btn-block" id="donate">Donate</button>
+                </div>
+              </form>
+			<% } %>
+          </div>
+          <div class="modal-footer">
+            <div class="col-md-12">
+              <button class="btn" data-dismiss="modal" aria-hidden="true">Cancel</button>
+            </div>  
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- modal end --> 
+    <script src="http://code.jquery.com/jquery.js"></script>
+    <script src="../js/bootstrap.js"></script>
+    <script src="../js/home.js"></script>
+</html>
+

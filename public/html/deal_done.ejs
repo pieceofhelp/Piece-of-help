@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<% include header.ejs %>
+  <body>
+    <div class="container-fluid">
+      <!--Content and sidebar-->
+      <div class="row row-offcanvas row-offcanvas-left">
+        <div class="col-sm-3 col-md-2 sidebar-offcanvas" id="sidebar" role="navigation">
+
+        </div>
+      <div class="col-sm-9 col-md-10 main content">
+        <h1>Congratulation!!</h1>
+        <div class="col-sm-9">
+        <table class="table table-striped emerald">
+        <tbody>
+          <tr>
+            <td>您已成功交換以下商品</td>
+            <td><%= item.item_name %></td>
+          </tr>
+          <tr>
+            <td>您的交易編號</td>
+            <td><%= item.trans_id %></td>
+          </tr>
+          <tr>
+            <td>從您的帳戶中扣除 Credit數</td>
+            <td><%= item.credit %></td>
+          </tr>
+        </tbody>
+      </table>
+        <br>
+        <table class="table table-striped">
+            <div>以下為賣家聯絡方式，請勿散布或做其他非法用途</div>
+        <tbody>
+          <tr>
+            <td>賣家聯絡電話</td>
+            <td><%= seller.tel %></td>
+          </tr>
+          <tr>
+            <td>賣家聯絡Email</td>
+            <td><%= seller.email %></td>
+          </tr>
+        </tbody>
+      </table>
+        <div>感謝您利用Love Spreading網站交換二手物資，期待再度為您服務</div>
+
+      </div>
+    </div>
+    <script src="http://code.jquery.com/jquery.js"></script>
+    <script src="../js/bootstrap.js"></script>
+    <script src="../js/home.js"></script>
+  </body>
+</html>
+

@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Love Spreading</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Bootstrap -->
+    <link href="../../css/bootstrap.css" rel="stylesheet" media="screen">
+    <link href="../../css/flat-ui.css" rel="stylesheet" media="screen">
+    <link href="../../css/selfdefine.css" rel="stylesheet" media="screen">
+    <link href="../../css/user.css" rel="stylesheet" media="screen">
+    <!-- <link href="../css/flat-ui.css" rel="stylesheet" media="screen"> -->
+    <nav class="navbar navbar-top navbar-fixed-top" role="navigation">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a href="../../home"><img src="../../img/text3.png" height="50px"></a>
+        </div>
+        <div class="navbar-collapse collapse">
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="../../home">物品瀏覽</a></li>
+            <li><a href="../../upload">物品捐贈</a></li>
+            <% if(!user){ %>
+            <li data-toggle="modal" data-target="#myModal"><a href="#">Login</a></li>
+            <% } else { %>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown"><%= user.name%> <b class="caret"></b></a>
+              <ul class="dropdown-menu">
+                <li><a href="../../profile/<%= user.id%>">Profile</a></li>
+                <li><a href="../../user/logout">Logout</a></li>
+              </ul>
+            </li>
+            <% } %>
+            
+            <li><a href="#">Help</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </head>
+  <body> 
+    </ul>
+    <div class="container-fluid">
+      <!--Content and sidebar-->
+      <div class="row row-offcanvas row-offcanvas-left">
+        <form role="form" name="dealform" method="POST" action="/deal">
+        <div class="col-sm-12 col-md-12 main content">
+          <!--Body content-->
+        <% items.forEach( function ( item ){ %>
+        <% if(item.supply_id){ %>
+          <div class="col-sm-4">
+            <img class="item_img_size block" src="<%= item.image %>">
+          </div>
+          <br>
+          <br>
+          <div class="col-sm-4">
+            <h5>商品資訊</h5>
+            <table class="table">
+              <tbody>
+                <tr>
+                  <td>商品名稱</td>
+                  <td><%= item.item_name %></td>
+                </tr>
+                <tr>
+                  <td>提供者</td>
+                  <td><%= item.supplier_name %></td>
+                </tr>
+                <tr>
+                  <td>單價</td>
+                  <td><%= item.credit %></td>
+                </tr>
+                <tr>
+                  <td>數量</td>
+                  <td><%= item.amount %></td>
+                </tr>
+              </tbody>
+            </table>
+            <div class="item_description">商品描述<br><%= item.description %></div>
+          </div>
+          
+          <div class="col-sm-4">
+              <h5>我要交換</h5>
+              <input type="text" class="form-control input-md hidden"  id="supply_id" name= "supply_id" value="<%= item.supply_id %>">
+              <input type="text" class="form-control input-md hidden"  id="item_name" name= "item_name" value="<%= item.item_name %>">
+              <input type="text" class="form-control input-md hidden"  id="supplier_name" name= "supplier_name" value="<%= item.supplier_name %>">
+              <input type="text" class="form-control input-md hidden"  id="supplier_name" name= "supplier_id" value="<%= item.supplier_id %>">
+              <input type="text" class="form-control input-md hidden"  id="credit" name= "credit" value="<%= item.credit %>">
+              <% if(!user){ %>
+                <p>請先登入</p>
+              <%} else{ %>
+                <input type="text" class="form-control input-md hidden" id="name" name="name" value="<%= user.id%>">
+                <% } %>
+              <table class="table">
+              <tbody>
+                <tr>
+                  <td>想要的數量</td>
+                  <td><input type="text" class="form-control input-xs"  id="amount" name= "amount"></td>
+                </tr>
+                <tr>
+                  <td class="red">取貨方式</td>
+                  <td></td>
+                </tr>
+                <% if(!item.face){ %>
+                <tr>
+                  <td>面交</td>
+                  <td class="red">賣家不提供面交服務</td>
+                </tr>
+                <%} else{ %>
+                <tr>
+                  <td><input type="radio" name="method" value="face"> 面交</td>
+                  <td>地點：<%= item.face %></td>
+                </tr>
+                <% } %>
+
+                <% if(!item.delivery){ %>
+                <tr>
+                  <td>郵寄</td>
+                  <td class="red">賣家不提供郵寄服務</td>
+                </tr>
+                <%} else{ %>
+                <tr>
+                  <td><input type="radio" name="method" value="face"> 郵寄</td>
+                  <td>自負郵資：<%= item.delivery %></td>
+                </tr>
+                <% } %>
+
+                <tr>
+                  <td COLSPAN=2><input type="checkbox" name="res_check" value="checked"> 本網站不涉及任何金錢交易責任</td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td class="pull-right"><button class="btn buy_btn"  type="submit">我要交換</button></td>
+                </tr>
+              </tbody>
+              </table>
+          </div>
+        </form>
+
+        <%} else{ %>
+          <div class="col-sm-4">
+            <img class="item_img_size block" src="<%= item.image %>"> 
+          </div>
+          
+          <div class="col-sm-5">
+            <br><br>
+            <table class="table">
+              <tbody>
+                <tr>
+                  <td>需求物品名</td>
+                  <td><%= item.item_name %></td>
+                </tr>
+                <tr>
+                  <td >需求人</td>
+                  <td><%= item.needer_name %></td>
+                </tr>
+                <tr>
+                  <td>需求數量</td>
+                  <td class><%= item.amount %></td>
+                </tr>
+              </tbody>
+            </table>
+            <div class="item_description">商品描述<br><%= item.description %></div>
+            <p>如有意捐贈，請透過以下方式聯繫公益團體</p>
+            <table class="table">
+              <tbody>
+                <% if(item.tel){ %>
+                <tr>
+                  <td>連絡電話</td>
+                  <td ><%= item.tel %></td>
+                </tr>
+                <%} else{} %>
+                <% if(item.email){ %>
+                <tr>
+                  <td>Email</td>
+                  <td><%= item.email %></td>
+                </tr>
+                <%} else{} %>
+              </tbody>
+            </table>
+        <% } %>
+      <% }); %>
+      </div>
+    <!-- Modal -->
+
+    <!-- Prompt login dialog Modal -->
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="text-center">Login</h1>
+          </div>
+          <div class="modal-body">
+            <form action="http://127.0.0.1:3000/user/login" class="form col-md-12 center-block" method="POST">
+              <div class="form-group">
+                <input name="id" type="text" class="form-control input-lg" placeholder="Account" id="account">
+              </div>
+              <div class="form-group">
+                <input name="password" type="password" class="form-control input-lg" placeholder="Password" id="password">
+              </div>
+              <div class="form-group">
+                <button type="submit" class="btn btn-primary btn-lg btn-block" id="signIn">Sign In</button>
+                <span class="pull-left" data-toggle="modal" data-target="#myModal2"><a href="#" onclick="$('#myModal').modal('hide')">Don't have an account? Register!</a></span>
+              </div>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <div class="col-md-12">
+              <button class="btn" data-dismiss="modal" aria-hidden="true">Cancel</button>
+            </div>  
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+    <div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="text-center">Register</h1>
+          </div>
+          <div class="modal-body">
+
+            
+            <form action="http://127.0.0.1:3000/user" class="form center-block" method="POST">
+              <div class="form-group">
+                <input name="id" type="text" class="form-control input-lg" placeholder="Account" id="account">
+              </div>
+              <div class="form-group">
+                <input name="password" type="password" class="form-control input-lg" placeholder="Password" id="password">
+              </div>
+              <div class="form-group">
+                <input name="name" type="text" class="form-control input-lg" placeholder="Name" id="name">
+              </div>
+              <div class="form-group">
+                <input name="email" type="text" class="form-control input-lg" placeholder="Email Address" id="email">
+              </div>
+              <div class="form-group">
+                <input name="tel" type="text" class="form-control input-lg" placeholder="Telephone Number" id="tel">
+              </div>
+              <div class="form-group">
+                <button type="submit" class="btn btn-primary btn-lg btn-block" id="signIn">Register</button>
+              </div>
+            </form>
+
+
+          </div>
+          <div class="modal-footer">
+            <div class="col-md-12">
+              <button class="btn" data-dismiss="modal" aria-hidden="true">Cancel</button>
+            </div>  
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Prompt login dialog modal end -->
+
+
+    <div class="modal fade" id="dealModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="text-center">Attention</h1>
+          </div>
+          <div class="modal-body">
+            <p>It will cost you credits.</p>
+            <p>Are you sure to exchange this item?</p>
+          </div>
+          <div class="modal-footer">
+            <div class="col-md-12">
+              <button class="btn btn-info">Confirm</button>
+              <button class="btn" data-dismiss="modal" aria-hidden="true">Cancel</button>
+            </div>  
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- modal end -->    
+  </body>
+    <script src="http://code.jquery.com/jquery.js"></script>
+    <script src="../../js/bootstrap.js"></script>
+
+</html>

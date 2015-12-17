@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html>
+<% include header.ejs %>
+  <body>
+    <div class="container-fluid">
+      <!--Content and sidebar-->
+      <div class="row row-offcanvas row-offcanvas-left">
+        <div class="col-sm-12 main content">
+
+        <!-- body -->
+          <div class="row-fluid">
+              <div>
+                  <div> <!-- header -->
+                      <!-- <button type="button" class="close" aria-hidden="false">×</button> -->
+                      <h1 class="text-center">物資上傳區</h1>
+                  </div>
+                  <div><!-- body -->
+                      <form class="form col-md-12 center-block" enctype="multipart/form-data" role="form" id="uploadform" name="uploadform" method="POST" action="/uploadsupply">
+                        <div class="form-group">
+                          <label class="glyphicon glyphicon-star">您的稱呼</label>
+                          <% if(!user){ %>
+                          <input type="text" class="form-control input-md " placeholder="阿呆" id="name" name="name">
+                          <%} else{ %>
+                          <input type="text" class="form-control input-md" id="name" name="name" value="<%= user.name%>">
+                          <input type="text" class="form-control input-md hidden" id="name" name="supplier_id" value="<%= user.id%>">
+                          <% } %>
+                        </div>
+                        <div class="form-group">
+                          <label class="glyphicon glyphicon-star">聯絡電話</label>
+                          <% if(!user){ %>
+                          <input type="text" class="form-control input-md" placeholder="0923456789" id="tel" name="tel">
+                          <% } else{ %>
+                          <input type="text" class="form-control input-md" id="tel" name="tel" value="<%= user.tel%>">
+                          <% } %>
+                        </div>
+                        <div class="form-group">
+                          <label class="glyphicon glyphicon-star">聯絡Email</label>
+                          <% if(!user){ %>
+                          <input type="text" class="form-control input-md" placeholder="A_DAI@idiot.com.tw" id="email" name="email">
+                          <% } else{ %>
+                          <input type="text" class="form-control input-md" id="email" name="email" value="<%= user.email%>">
+                          <% } %>
+                          <br>
+                          <label class="glyphicon glyphicon-star">若與註冊時不同，請記得更改</label>
+                        </div>
+
+                        <div class="row-fluid">
+                          <div class="form-group col-md-5">
+                            <label>物資名稱</label>
+                            <input type="text" class="form-control input-md" placeholder="二手潮衣" id="item_name" name="item_name">
+                          </div>
+                          <div class="form-group col-md-3">
+                            <label>物資分類</label>
+                            <select class="form-control" id="catogory" name="catogory">
+                              <option value='1'>衣物</option>
+                              <option value='2'>家電</option>
+                              <option value='3'>文具</option>
+                              <option value='4'>食品</option>
+                              <option value='5'>傢俱</option>
+                              <option value='6'>3C產品</option>
+                              <option value='7'>廚房用具</option>
+                              <option value='8'>清潔用具</option>
+                            </select>
+                          </div>
+                          <div class="form-group col-md-1">
+                            <label>數量</label>
+                            <input type="text" class="form-control input-md" placeholder="3" id="amount" name="amount">
+                          </div>
+                          <div class="form-group col-md-3">
+                            <label>單價</label>
+                            <input type="text" class="form-control input-md" placeholder="200" id="amount" name="credit">
+                          </div>
+                        </div>
+                        
+
+                        <div class="form-group col-md-12">
+                          <label>送貨方式</label>
+                          <div class="row-fluid">
+                            <div class="col-md-6">
+                            <label>
+                              <input type="checkbox" id="Checkbox1" value="face" name="Checkbox1"> &nbsp;&nbsp;面交
+                              <input type="text" class="col-md-3 form-control input-md" placeholder="請填寫願意面交的地點" name="face_location">
+                            </label>
+                            </div>
+                            <div class="col-md-6">
+                              <label class>
+                                <input type="checkbox" id="Checkbox2" value="delivery" name="Checkbox2"> &nbsp;&nbsp;郵寄
+                                <input type="text" class="col-md-3 form-control input-md" placeholder="請填寫對方需負擔的郵資" name="delivery_cost">
+                              </label>        
+                              </div>
+                            </div>
+                          
+                        </div>
+                        <div class="form-group col-md-12 pull-left">
+                          <label>照片上傳</label>
+                          <br>
+                          <button class="btn buy_btn" id="pickfile" type="button" />請選擇檔案</button>
+
+                          <img style="max-width:200px;" id="empty" alt="empty">
+
+                          <input id="imgurl" type="hidden" name="imgurl">
+
+                        </div>
+                        <div class="clearfix"></div>
+                        <div class="form-group">
+                          <br>
+                          <textarea type="text" name="description" id="description" class="form-control input-md" rows="4" placeholder="有關物資、運送等其他說明"></textarea>
+                        </div>
+
+                        <div>
+                          <button class="btn btn-primary btn-lg btn-block" id="upload" type="submit">上傳物資</button>
+                          <span class="pull-right"><a href="#">上傳說明</a></span>
+                        </div>
+                      </form>
+                  </div> 
+              </div>  
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Prompt login dialog Modal -->
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="text-center">Login</h1>
+          </div>
+          <div class="modal-body">
+            <form action="/user/login" class="form col-md-12 center-block" method="POST">
+              <div class="form-group">
+                <input name="id" type="text" class="form-control input-lg" placeholder="Account" id="account">
+              </div>
+              <div class="form-group">
+                <input name="password" type="password" class="form-control input-lg" placeholder="Password" id="password">
+              </div>
+              <div class="form-group">
+                <button type="submit" class="btn btn-primary btn-lg btn-block" id="signIn">Sign In</button>
+                <span class="pull-left" data-toggle="modal" data-target="#myModal2"><a href="#" onclick="$('#myModal').modal('hide')">Don't have an account? Register!</a></span>
+              </div>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <div class="col-md-12">
+              <button class="btn" data-dismiss="modal" aria-hidden="true">Cancel</button>
+            </div>  
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="text-center">Register</h1>
+          </div>
+          <div class="modal-body">
+
+            
+            <form action="/user" class="form center-block" method="POST">
+              <div class="form-group">
+                <input name="id" type="text" class="form-control input-lg" placeholder="Account" id="account">
+              </div>
+              <div class="form-group">
+                <input name="password" type="password" class="form-control input-lg" placeholder="Password" id="password">
+              </div>
+              <div class="form-group">
+                <input name="name" type="text" class="form-control input-lg" placeholder="Name" id="name">
+              </div>
+              <div class="form-group">
+                <input name="email" type="text" class="form-control input-lg" placeholder="Email Address" id="email">
+              </div>
+              <div class="form-group">
+                <input name="tel" type="text" class="form-control input-lg" placeholder="Telephone Number" id="tel">
+              </div>
+              <div class="form-group">
+                <button type="submit" class="btn btn-primary btn-lg btn-block" id="signIn">Register</button>
+              </div>
+            </form>
+
+
+          </div>
+          <div class="modal-footer">
+            <div class="col-md-12">
+              <button class="btn" data-dismiss="modal" aria-hidden="true">Cancel</button>
+            </div>  
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Prompt login dialog modal end -->
+
+  <script src="http://code.jquery.com/jquery.js"></script>
+  <script type="text/javascript" src="//api.filepicker.io/v1/filepicker.js"></script>
+  <script src="../js/bootstrap.js"></script>
+  <script src="../js/upload.js"></script>
+
+  </body>
+</html>
