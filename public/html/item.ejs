@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Piece of help</title>
+    <title>Love Spreading</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Bootstrap -->
     <link href="../../css/bootstrap.css" rel="stylesheet" media="screen">
@@ -58,28 +58,29 @@
           <br>
           <br>
           <div class="col-sm-4">
-            <h5>商品資訊</h5>
+            <h5>幫助清單</h5>
             <table class="table">
               <tbody>
+                
                 <tr>
-                  <td>商品名稱</td>
-                  <td><%= item.item_name %></td>
-                </tr>
-                <tr>
-                  <td>提供者</td>
+                  <td>求救者</td>
                   <td><%= item.supplier_name %></td>
                 </tr>
                 <tr>
-                  <td>單價</td>
+                    <tr>
+                  <td>回饋</td>
+                  <td><%= item.item_name %></td>
+                </tr>
+                  <td>地區</td>
                   <td><%= item.credit %></td>
                 </tr>
                 <tr>
-                  <td>數量</td>
+                  <td>類別</td>
                   <td><%= item.amount %></td>
                 </tr>
               </tbody>
             </table>
-            <div class="item_description">商品描述<br><%= item.description %></div>
+            <div class="item_description">詳細描述<br><%= item.description %></div>
           </div>
           
           <div class="col-sm-4">
@@ -97,11 +98,11 @@
               <table class="table">
               <tbody>
                 <tr>
-                  <td>想要的數量</td>
+                  <td>我要幫忙</td>
                   <td><input type="text" class="form-control input-xs"  id="amount" name= "amount"></td>
                 </tr>
                 <tr>
-                  <td class="red">取貨方式</td>
+                  <td class="red">聯絡方式</td>
                   <td></td>
                 </tr>
                 <% if(!item.face){ %>
@@ -111,37 +112,28 @@
                 </tr>
                 <%} else{ %>
                 <tr>
-                  <td><input type="radio" name="method" value="face"> 面交</td>
+                  <td><input type="radio" name="method" value="face"> 幫助</td>
                   <td>地點：<%= item.face %></td>
                 </tr>
-                <% } %>
+                <% }
 
-                <% if(!item.delivery){ %>
-                <tr>
-                  <td>郵寄</td>
-                  <td class="red">賣家不提供郵寄服務</td>
-                </tr>
-                <%} else{ %>
-                <tr>
-                  <td><input type="radio" name="method" value="face"> 郵寄</td>
-                  <td>自負郵資：<%= item.delivery %></td>
-                </tr>
-                <% } %>
+               
 
                 <tr>
-                  <td COLSPAN=2><input type="checkbox" name="res_check" value="checked"> 本網站不涉及任何金錢交易責任</td>
+                  <td COLSPAN=2><input type="checkbox" name="res_check" value="checked"> 本網站不涉及任何利益交換責任，一切由用戶雙方自負
+，</td>
                 </tr>
                 <tr>
                   <td></td>
-                  <td class="pull-right"><button class="btn buy_btn"  type="submit">我要交換</button></td>
+                  <td class="pull-right"><button class="btn buy_btn"  type="submit">我要幫忙</button></td>
                 </tr>
               </tbody>
               </table>
           </div>
         </form>
 
-        <%} else{ %>
-          <div class="col-sm-4">
+     //   <%} else{ %>
+   <!--       <div class="col-sm-4">
             <img class="item_img_size block" src="<%= item.image %>"> 
           </div>
           
@@ -182,16 +174,17 @@
               </tbody>
             </table>
         <% } %>
-      <% }); %>
+      <% }); %> 
+              -->
       </div>
-    <!-- Modal -->
+                    <!-- Modal -->
 
     <!-- Prompt login dialog Modal -->
     <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
       <div class="modal-dialog">
         <div class="modal-content">
           <div class="modal-header">
-            <h1 class="text-center">Login</h1>
+            <h1 class="text-center">登入</h1>
           </div>
           <div class="modal-body">
             <form action="http://127.0.0.1:3000/user/login" class="form col-md-12 center-block" method="POST">
@@ -203,7 +196,7 @@
               </div>
               <div class="form-group">
                 <button type="submit" class="btn btn-primary btn-lg btn-block" id="signIn">Sign In</button>
-                <span class="pull-left" data-toggle="modal" data-target="#myModal2"><a href="#" onclick="$('#myModal').modal('hide')">Don't have an account? Register!</a></span>
+                <span class="pull-left" data-toggle="modal" data-target="#myModal2"><a href="#" onclick="$('#myModal').modal('hide')">沒有帳號嗎? 註冊吧!</a></span>
               </div>
             </form>
           </div>
@@ -222,7 +215,7 @@
       <div class="modal-dialog">
         <div class="modal-content">
           <div class="modal-header">
-            <h1 class="text-center">Register</h1>
+            <h1 class="text-center">註冊</h1>
           </div>
           <div class="modal-body">
 
@@ -244,7 +237,7 @@
                 <input name="tel" type="text" class="form-control input-lg" placeholder="Telephone Number" id="tel">
               </div>
               <div class="form-group">
-                <button type="submit" class="btn btn-primary btn-lg btn-block" id="signIn">Register</button>
+                <button type="submit" class="btn btn-primary btn-lg btn-block" id="signIn">註冊</button>
               </div>
             </form>
 
@@ -252,7 +245,7 @@
           </div>
           <div class="modal-footer">
             <div class="col-md-12">
-              <button class="btn" data-dismiss="modal" aria-hidden="true">Cancel</button>
+              <button class="btn" data-dismiss="modal" aria-hidden="true">取消</button>
             </div>  
           </div>
         </div>
@@ -274,8 +267,8 @@
           </div>
           <div class="modal-footer">
             <div class="col-md-12">
-              <button class="btn btn-info">Confirm</button>
-              <button class="btn" data-dismiss="modal" aria-hidden="true">Cancel</button>
+              <button class="btn btn-info">確認</button>
+              <button class="btn" data-dismiss="modal" aria-hidden="true">取消</button>
             </div>  
           </div>
         </div>
