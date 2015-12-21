@@ -1,6 +1,40 @@
+
 <!DOCTYPE html>
 <html>
-<% include header.ejs %>
+  <head>
+    <title>Piece of help</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Bootstrap -->
+    <link href="../css/bootstrap.css" rel="stylesheet" media="screen">
+    <link href="../css/flat-ui.css" rel="stylesheet" media="screen">
+    <link href="../css/selfdefine.css" rel="stylesheet" media="screen">
+    <link href="../css/user.css" rel="stylesheet" media="screen">
+    <!-- <link href="../css/flat-ui.css" rel="stylesheet" media="screen"> -->
+    <nav class="navbar navbar-top navbar-fixed-top" role="navigation">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a href="home">Piece of help</a>
+        </div>
+        <div class="navbar-collapse collapse">
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="home">需求瀏覽</a></li>
+            <li><a href="upload">物品捐贈</a></li>
+            
+            <li data-toggle="modal" data-target="#myModal"><a href="#">Login</a></li>
+            
+            
+            <li><a href="#">Help</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </head>
   <body> 
     <ul class="nav nav-tabs black">
       <li class="active">
@@ -16,14 +50,20 @@
           <!--Sidebar content-->
           <ul class="nav nav-sidebar">
             <li><a href="#" id="latest">最新</a></li>
-            <li><a href="#" id="cloth">衣物</a></li>
-            <li><a href="#" id="house">家電</a></li>
-            <li><a href="#" id="stationary">文具</a></li>
-            <li><a href="#" id="food">食品</a></li>
-            <li><a href="#" id="furniture">傢俱</a></li>
-            <li><a href="#" id="threeC">3C產品</a></li>
-            <li><a href="#" id="kitchen">廚房用具</a></li>
-            <li><a href="#" id="clean">清潔用具</a></li>
+            <li><a href="#" id="work">人力支援</a></li>
+            <li><a href="#" id="study">學習困難</a></li>
+            <li><a href="#" id="thoughts">集思廣益</a></li>
+            <li><a href="#" id="skills">技術指導</a></li>
+            <li><a href="#" id="foods">飲食文化</a></li>
+            <li><a href="#" id="clothes">穿著時尚</a></li>
+            <li><a href="#" id="residence">居所住宿</a></li>
+            <li><a href="#" id="cars">汽車交通</a></li>
+            <li><a href="#" id="fun">視聽娛樂</a></li>
+            <li><a href="#" id="sports">休閒運動</a></li>
+            <li><a href="#" id="computer">電腦問題</a></li>
+            <li><a href="#" id="economy">商業經濟</a></li>
+            <li><a href="#" id="social">社會文化</a></li>
+            <li><a href="#" id="science">自然科學</a></li>
           </ul>
         </div>
         <div class="col-sm-9 col-md-10 main content">
@@ -120,7 +160,7 @@
     </style>
     <div class="treasure" data-toggle="modal" data-target="#CreditModal">
       <h6>聚寶盆</h6>
-      <span>credit : <%= credit%></span>
+      <span>credit : 0</span>
     </div>
 
     <div class="modal fade" id="CreditModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -130,21 +170,10 @@
             <h1 class="text-center">Donate Credit!</h1>
           </div>
           <div class="modal-body">
-            <% if(!user){ %>
+            
 			  <span data-toggle="modal" data-target="#myModal"><a href="#" onclick="$('#CreditModal').modal('hide')">請先登入!</span>
 			  <!-- <li data-toggle="modal" data-target="#myModal"><a href="#" onclick="$('#CreditModal').modal('hide')">Login</a></li> -->
-            <% }else{ %>
-              <span>您目前擁有: <%= user.credit%> credit<br></span>
-              <form action="/donate" class="form center-block" method="POST"> 
-              想捐多少credit:
-                <div class="form-group">
-                  <input name="donate" type="text" class="form-control input-lg" placeholder="50" id="donate">
-                </div>
-                <div class="form-group">
-                  <button type="submit" class="btn btn-primary btn-lg btn-block" id="donate">Donate</button>
-                </div>
-              </form>
-			<% } %>
+            
           </div>
           <div class="modal-footer">
             <div class="col-md-12">

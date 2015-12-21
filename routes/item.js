@@ -25,7 +25,7 @@ exports.item = function (req, res) {
 		    	};
 		    	console.log(item);
 				res.render('item', {
-					title: 'Love Spreading',
+					title: 'Piece of help',
 					items: item,
 					user: req.session.user,
 				})
@@ -41,7 +41,7 @@ exports.item = function (req, res) {
 		    	};
 		    	console.log(item);
 		    	res.render('item', {
-					title: 'Love Spreading',
+					title: 'Piece of help',
 					items: item,
 					user: req.session.user,
 				})
@@ -112,7 +112,7 @@ exports.deal = function(req, res){
     	console.log('seller bbbbb', seller);
     	// console.log(detail);
     	res.render('deal_done', {
-					title: 'Love Spreading',
+					title: 'Piece of help',
 					seller: seller,
 					item: detail,
 					user: req.session.user
@@ -135,22 +135,22 @@ exports.deal = function(req, res){
 			// console.log('supplier_mail'+ supplier_mail);
 
 			var mailOptions = {
-				from: "lovespreading2014@gmail.com", // sender address
+				from: "u10116004@go.utaipei.edu.tw", // sender address
 				to: users[0].email, // list of receivers
 				subject: "Transaction Success on Love Spreading!", // Subject line
 				html: "Congratulation!!<br>"+
 				"Your items on Love Spreading has been bought by someone else!<br><br>"+
-				"您已成功賣出以下商品 : "+detail.item_name+"<br>"+
+				"您已經提出需求， : "+detail.item_name+"<br>"+
 				"商品數量 : "+detail.amount+"<br>"+
 				"交易編號 : "+detail.trans_id+"<br>"+
-				"您得到的Credit : "+detail.credit+"<br><br>"+
+				"您得到的credit : "+detail.credit+"<br><br>"+
 
-				"以下為買家聯絡方式，請勿散布或做其他非法用途<br>"+
+				"以下為幫助者聯絡方式，請勿散布或做其他非法用途<br>"+
 				"並請盡快聯絡買家確認出貨事宜!<br>"+
 				"姓名 : "+users[0].name+"<br>"+
 				"電話 : "+users[0].tel+"<br>"+
 				"Email : "+users[0].email+"<br>"+
-				"感謝您利用Love Spreading網站交換二手物資，期待再度為您服務" // html body
+				"希望您能早一點得到需要的幫助，Piece of help 與你同在" // html body
 			}
 
 			console.log('mailOptions:'+ mailOptions);

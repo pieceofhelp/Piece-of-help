@@ -10,7 +10,7 @@ var supply_index = 50;
 
 exports.index = function(req, res) {
 	res.render('index', {
-		title: 'Love Spreading'
+		title: 'Piece of help'
 	});
 }
 
@@ -21,7 +21,7 @@ exports.home = function(req, res) {
 		console.log(err, credit);
 	
 		res.render('home', {
-			title: 'Love Spreading',
+			title: 'Piece of help',
 			user: req.session.user,
 			credit: credit.value
 		});
@@ -115,7 +115,7 @@ exports.create = function ( req, res){
 exports.upload = function(req, res) {
 	console.log("user session check: " + req.session.user);
 	res.render('upload', {
-		title: 'Love Spreading',
+		title: 'Piece of help',
 		user: req.session.user
 	});
 
