@@ -206,7 +206,7 @@ body {
   background-color: #ffffff;
 }
 a {
-  color: #16a085;
+  color: #fff;
   text-decoration: none;
   -webkit-transition: 0.25s;
   transition: 0.25s;
@@ -300,7 +300,7 @@ h3,
 }
 h4,
 .h4 {
-  font-size: 29px;
+  font-size: 22px;
 }
 h5,
 .h5 {
