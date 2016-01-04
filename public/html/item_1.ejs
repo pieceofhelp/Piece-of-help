@@ -8,7 +8,6 @@
     <link href="../../css/flat-ui.css" rel="stylesheet" media="screen">
     <link href="../../css/selfdefine.css" rel="stylesheet" media="screen">
     <link href="../../css/user.css" rel="stylesheet" media="screen">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
     <!-- <link href="../css/flat-ui.css" rel="stylesheet" media="screen"> -->
     <nav class="navbar navbar-top navbar-fixed-top" role="navigation">
       <div class="container-fluid">
@@ -23,8 +22,8 @@
         </div>
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav navbar-right">
-            <li><a href="../../home">幫助</a></li>
-            <li><a href="../../upload">求救</a></li>
+            <li><a href="../../home">物品瀏覽</a></li>
+            <li><a href="../../upload">物品捐贈</a></li>
             <% if(!user){ %>
             <li data-toggle="modal" data-target="#myModal"><a href="#">Login</a></li>
             <% } else { %>
@@ -36,6 +35,8 @@
               </ul>
             </li>
             <% } %>
+            
+            <li><a href="#">Help</a></li>
           </ul>
         </div>
       </div>
@@ -57,23 +58,23 @@
           <br>
           <br>
           <div class="col-sm-4">
-            <h5>求救</h5>
+            <h5>需要什麼</h5>
             <table class="table">
               <tbody>
                 <tr>
-                  <td>求救原因</td>
+                  <td>需要</td>
                   <td><%= item.item_name %></td>
                 </tr>
                 <tr>
-                  <td>求救者</td>
+                  <td>提供者</td>
                   <td><%= item.supplier_name %></td>
                 </tr>
                 <tr>
-                  <td>求救者稱號</td>
+                  <td>需求</td>
                   <td><%= item.credit %></td>
                 </tr>
                 <tr>
-                  <td>懸賞</td>
+                  <td>需求人數</td>
                   <td><%= item.amount %></td>
                 </tr>
               </tbody>
@@ -82,13 +83,60 @@
           </div>
           
           <div class="col-sm-4">
-              <h4>幫助他</h4>
-             <% if(!user){ %>
+              <h5>我願意幫助他</h5>
+              <input type="text" class="form-control input-md hidden"  id="supply_id" name= "supply_id" value="<%= item.supply_id %>">
+              <input type="text" class="form-control input-md hidden"  id="item_name" name= "item_name" value="<%= item.item_name %>">
+              <input type="text" class="form-control input-md hidden"  id="supplier_name" name= "supplier_name" value="<%= item.supplier_name %>">
+              <input type="text" class="form-control input-md hidden"  id="supplier_name" name= "supplier_id" value="<%= item.supplier_id %>">
+              <input type="text" class="form-control input-md hidden"  id="credit" name= "credit" value="<%= item.credit %>">
+              <% if(!user){ %>
                 <p>請先登入</p>
               <%} else{ %>
                 <input type="text" class="form-control input-md hidden" id="name" name="name" value="<%= user.id%>">
                 <% } %>
-                <button class="btn buy_btn"  type="submit"><h1><i class="fa fa-hand-paper-o"></i></h1></button>
+              <table class="table">
+              <tbody>
+                <tr>
+                  <td>想要的數量</td>
+                  <td><input type="text" class="form-control input-xs"  id="amount" name= "amount"></td>
+                </tr>
+                <tr>
+                  <td class="red">取貨方式</td>
+                  <td></td>
+                </tr>
+                <% if(!item.face){ %>
+                <tr>
+                  <td>解決方式</td>
+                  <td class="red">線上解決</td>
+                </tr>
+                <%} else{ %>
+                <tr>
+                  <td><input type="radio" name="method" value="face"> 解決方式</td>
+                  <td>捷運站：<%= item.face %></td>
+                </tr>
+                <% } %>
+
+                <% if(!item.delivery){ %>
+                <tr>
+                  <td>回報</td>
+                  <td class="red">給予獎勵</td>
+                </tr>
+                <%} else{ %>
+                <tr>
+                  <td><input type="radio" name="method" value="face"> 回報</td>
+                  <td>贈送愛心：<%= item.delivery %></td>
+                </tr>
+                <% } %>
+
+                <tr>
+                  <td COLSPAN=2><input type="checkbox" name="res_check" value="checked"> 本網站不涉及任何金錢交易責任</td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td class="pull-right"><button class="btn buy_btn"  type="submit">我要幫助</button></td>
+                </tr>
+              </tbody>
+              </table>
           </div>
         </form>
 

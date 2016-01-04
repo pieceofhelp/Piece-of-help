@@ -106,7 +106,7 @@ exports.deal = function(req, res){
 	
 	new Trans(detail)
 	.save( function ( err, need, count ){
-    	if( err ) return next( err );
+    if( err ) return next( err );
     	console.log('transaction successfully');
     	console.log('item trans_id',detail.trans_id);
     	console.log('seller bbbbb', seller);
