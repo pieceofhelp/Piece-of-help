@@ -12,14 +12,14 @@
               <div>
                   <div> <!-- header -->
                       <!-- <button type="button" class="close" aria-hidden="false">×</button> -->
-                      <h1 class="text-center">物資上傳區</h1>
+                      <h1 class="text-center">張貼求救訊號</h1>
                   </div>
                   <div><!-- body -->
                       <form class="form col-md-12 center-block" enctype="multipart/form-data" role="form" id="uploadform" name="uploadform" method="POST" action="/uploadsupply">
                         <div class="form-group">
                           <label class="glyphicon glyphicon-star">您的稱呼</label>
                           <% if(!user){ %>
-                          <input type="text" class="form-control input-md " placeholder="阿呆" id="name" name="name">
+                          <input type="text" class="form-control input-md " placeholder="your name" id="name" name="name">
                           <%} else{ %>
                           <input type="text" class="form-control input-md" id="name" name="name" value="<%= user.name%>">
                           <input type="text" class="form-control input-md hidden" id="name" name="supplier_id" value="<%= user.id%>">
@@ -41,52 +41,51 @@
                           <input type="text" class="form-control input-md" id="email" name="email" value="<%= user.email%>">
                           <% } %>
                           <br>
-                          <label class="glyphicon glyphicon-star">若與註冊時不同，請記得更改</label>
                         </div>
 
                         <div class="row-fluid">
                           <div class="form-group col-md-5">
-                            <label>物資名稱</label>
-                            <input type="text" class="form-control input-md" placeholder="二手潮衣" id="item_name" name="item_name">
+                            <label>求救內容</label>
+                            <input type="text" class="form-control input-md" placeholder="求救原因" id="item_name" name="item_name">
                           </div>
                           <div class="form-group col-md-3">
-                            <label>物資分類</label>
+                            <label>求救分類</label>
                             <select class="form-control" id="catogory" name="catogory">
  			                  <option value='1'>人力支援</option>
                               <option value='2'>課業困難</option>
                               <option value='3'>集思廣益</option>
                               <option value='4'>技術指導</option>
-                              <option value='5'>電腦3C</option>
+                              <option value='5'>物品維修</option>
                               <option value='6'>物品出借</option>
-                              <option value='7'>物品維修</option>
+                              <option value='7'>緊急求救</option>
                               <option value='8'>其他問題</option>
 
                             </select>
                           </div>
                           <div class="form-group col-md-1">
-                            <label>數量</label>
+                            <label>人數</label>
                             <input type="text" class="form-control input-md" placeholder="3" id="amount" name="amount">
                           </div>
                           <div class="form-group col-md-3">
-                            <label>單價</label>
+                            <label>時間</label>
                             <input type="text" class="form-control input-md" placeholder="200" id="amount" name="credit">
                           </div>
                         </div>
                         
 
                         <div class="form-group col-md-12">
-                          <label>送貨方式</label>
+                          <label>解決方式</label>
                           <div class="row-fluid">
                             <div class="col-md-6">
                             <label>
-                              <input type="checkbox" id="Checkbox1" value="face" name="Checkbox1"> &nbsp;&nbsp;面交
-                              <input type="text" class="col-md-3 form-control input-md" placeholder="請填寫願意面交的地點" name="face_location">
+                              <input type="checkbox" id="Checkbox1" value="face" name="Checkbox1"> &nbsp;&nbsp;當面解決
+                              <input type="text" class="col-md-3 form-control input-md" placeholder="請填寫見面地點" name="face_location">
                             </label>
                             </div>
                             <div class="col-md-6">
                               <label class>
-                                <input type="checkbox" id="Checkbox2" value="delivery" name="Checkbox2"> &nbsp;&nbsp;郵寄
-                                <input type="text" class="col-md-3 form-control input-md" placeholder="請填寫對方需負擔的郵資" name="delivery_cost">
+                                <input type="checkbox" id="Checkbox2" value="delivery" name="Checkbox2"> &nbsp;&nbsp;線上解決
+                                <input type="text" class="col-md-3 form-control input-md" placeholder="請填寫合適的時間" name="delivery_cost">
                               </label>        
                               </div>
                             </div>
@@ -108,7 +107,7 @@
                         </div>
 
                         <div>
-                          <button class="btn btn-primary btn-lg btn-block" id="upload" type="submit">上傳物資</button>
+                          <button class="btn btn-primary btn-lg btn-block" id="upload" type="submit">送出</button>
                           <span class="pull-right"><a href="#">上傳說明</a></span>
                         </div>
                       </form>
