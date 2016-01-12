@@ -1,15 +1,20 @@
 <!DOCTYPE html>
-<html>
+<html ng-app>
 <% include header.ejs %>
   <body> 
-    <ul class="nav nav-tabs black">
+    <ul class="nav nav-tabs black homebanner">
+      
       <li class="active">
         <a class="fui-user" href="#" id="trade"> 站內求救</a>
       </li>
+      
       <li><a href="http://188.166.220.35:3000/html/social-help/index.html" id="charity"><i class="fa fa-share"></i>社群求救 </a></li>
-      <li><a href="case" id="case"><i class="fa fa-briefcase"></i>幫助案例 </a></li>
+      
+      <li><a href="http://188.166.220.35:3000/html/demo/html/object1.html" id="case"><i class="fa fa-briefcase"></i>幫助案例 </a></li>
+      
       <li><a class="fui-heart" href="http://163.21.235.61/~u10116004/example/map/" id="map">公益特區 </a></li>
     </ul>
+    
     <div class="container-fluid">
       <!--Content and sidebar-->
       <div class="row row-offcanvas row-offcanvas-left">
@@ -29,8 +34,38 @@
           </ul>
         </div>
         <div class="col-sm-9 col-md-10 main content">
-          <ul class="modify">
+          <ul >
+
+<div class="fix_block thumbnail">
+<img width="150px" height="150px" src="images/1.jpg">
+<div class="caption"><div class="row-fliud">
+<div class="col-sm-8">
+</p>幫忙搬宿舍</p><p>無名英雄</p></div><br>
+<a class="btn btn-info down pull-right" data-id="50" href="http://188.166.220.35:3000/item/1.html">More</a></div>
+</div>
+</div>
+
+<div class="fix_block thumbnail">
+<img width="150px" height="150px" src="https://www.filepicker.io/api/file/FVNoznggTECfZdrbId4M/convert?width=400&amp;height=400&amp;fit=crop">
+<div class="caption"><div class="row-fliud">
+<div class="col-sm-8"><p>首頁被綁架了</p>
+<p>無名英雄</p></div><br>
+<a class="btn btn-info down pull-right" data-id="52" href="/item/0/52">More</a></div>
+</div>
+</div>
+
+<div class="fix_block thumbnail">
+<img width="150px" height="150px" src="https://www.filepicker.io/api/file/FVNoznggTECfZdrbId4M/convert?width=400&amp;height=400&amp;fit=crop">
+<div class="caption"><div class="row-fliud">
+<div class="col-sm-8"><p>首頁被綁架了</p>
+<p>Credit: null</p></div><br>
+<a class="btn btn-info down pull-right" data-id="52" href="/item/0/52">More</a></div>
+</div>
+</div>
+
           </ul>
+         <ul class="modify">
+         </ul>
         </div>
     
     <!-- Prompt login dialog Modal -->
@@ -120,11 +155,6 @@
       color: white;
     }
     </style>
-    <div class="treasure" data-toggle="modal" data-target="#CreditModal">
-      <h6>稱號</h6>
-      <span>積分 : <%= credit%></span>
-    </div>
-
     <div class="modal fade" id="CreditModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
       <div class="modal-dialog modal-sm">
         <div class="modal-content">

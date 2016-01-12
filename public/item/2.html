@@ -1,0 +1,202 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Piece of help</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Bootstrap -->
+    <meta charset="utf-8">  
+    <link href="../css/bootstrap.css" rel="stylesheet" media="screen">
+    <link href="../css/flat-ui.css" rel="stylesheet" media="screen">
+    <link href="../css/selfdefine.css" rel="stylesheet" media="screen">
+    <link href="../css/user.css" rel="stylesheet" media="screen">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <!-- <link href="../css/flat-ui.css" rel="stylesheet" media="screen"> -->
+    <nav class="navbar navbar-top navbar-fixed-top" role="navigation">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a href="http://188.166.220.35:3000/home"><h4>Piece of help</h4></a>
+        </div>
+        <div class="navbar-collapse collapse">
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="http://188.166.220.35:3000/home">幫助</a></li>
+            <li><a href="http://188.166.220.35:3000/upload">求救</a></li>
+            
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">admin <b class="caret"></b></a>
+              <ul class="dropdown-menu">
+                <li><a href="../../profile/u10116004@go.utaipei.edu.tw">Profile</a></li>
+                <li><a href="../../user/logout">Logout</a></li>
+              </ul>
+            </li>
+            
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </head>
+  <body> 
+    <div class="container-fluid">
+      <!--Content and sidebar-->
+      <div class="row row-offcanvas row-offcanvas-left">
+        <form role="form" name="dealform" method="POST" action="/deal">
+        <div class="col-sm-12 col-md-12 main content">
+          <!--Body content-->
+        
+        
+          <div class="col-sm-4">
+            <img class="item_img_size block" src="https://www.filepicker.io/api/file/FVNoznggTECfZdrbId4M/convert?width=400&amp;height=400&amp;fit=crop"">
+          </div>
+          <br>
+          <br>
+          <div class="col-sm-4">
+            <h5>求救</h5>
+            <table class="table">
+              <tbody>
+                <tr>
+                  <td>求救原因</td>
+                  <td>SD卡損毀</td>
+                </tr>
+                <tr>
+                  <td>求救者</td>
+                  <td>Hsin-chieh</td>
+                </tr>
+                <tr>
+                  <td>求救者稱號</td>
+                  <td>無名英雄</td>
+                </tr>
+                <tr>
+                  <td>懸賞</td>
+                  <td>20</td>
+                </tr>
+              </tbody>
+            </table>
+            <div class="item_description">內容描述<br>大卡轉小卡發現無法使用，不能刪除又不能隔式化，我該怎麼辦?</div>
+          </div>
+          
+          <div class="col-sm-4">
+              <h4>幫助他</h4>             
+                <input type="text" class="form-control input-md hidden" id="name" name="name" value="u10116004@go.utaipei.edu.tw">                
+                <button class="btn buy_btn"  type="submit"><h1><i class="fa fa-hand-paper-o"></i></h1></button>
+                </div>
+                </form>
+
+      <center>
+           <div class="col-sm-12">
+              <h4>分享至社群網路</h4>             
+                <input type="text" class="form-control input-md hidden" id="name" name="name" value="u10116004@go.utaipei.edu.tw">                
+                <button class="btn buy_btn"  type="submit"><h1><i class="fa fa-facebook-square"></i></h1></button>
+                <button class="btn buy_btn"  type="submit"><h1><i class="fa fa-twitter-square"></i></i></h1></button>
+                <button class="btn buy_btn"  type="submit"><h1><i class="fa fa-google-plus-square"></i></h1></button>
+                <button class="btn buy_btn"  type="submit"><h1><i class="fa fa-instagram"></i></h1></button>
+          </div>
+      </center>
+    <!-- Modal -->
+
+    <!-- Prompt login dialog Modal -->
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="text-center">Login</h1>
+          </div>
+          <div class="modal-body">
+            <form action="http://127.0.0.1:3000/user/login" class="form col-md-12 center-block" method="POST">
+              <div class="form-group">
+                <input name="id" type="text" class="form-control input-lg" placeholder="Account" id="account">
+              </div>
+              <div class="form-group">
+                <input name="password" type="password" class="form-control input-lg" placeholder="Password" id="password">
+              </div>
+              <div class="form-group">
+                <button type="submit" class="btn btn-primary btn-lg btn-block" id="signIn">Sign In</button>
+                <span class="pull-left" data-toggle="modal" data-target="#myModal2"><a href="#" onclick="$('#myModal').modal('hide')">Don't have an account? Register!</a></span>
+              </div>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <div class="col-md-12">
+              <button class="btn" data-dismiss="modal" aria-hidden="true">Cancel</button>
+            </div>  
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+    <div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="text-center">Register</h1>
+          </div>
+          <div class="modal-body">
+
+            
+            <form action="http://127.0.0.1:3000/user" class="form center-block" method="POST">
+              <div class="form-group">
+                <input name="id" type="text" class="form-control input-lg" placeholder="Account" id="account">
+              </div>
+              <div class="form-group">
+                <input name="password" type="password" class="form-control input-lg" placeholder="Password" id="password">
+              </div>
+              <div class="form-group">
+                <input name="name" type="text" class="form-control input-lg" placeholder="Name" id="name">
+              </div>
+              <div class="form-group">
+                <input name="email" type="text" class="form-control input-lg" placeholder="Email Address" id="email">
+              </div>
+              <div class="form-group">
+                <input name="tel" type="text" class="form-control input-lg" placeholder="Telephone Number" id="tel">
+              </div>
+              <div class="form-group">
+                <button type="submit" class="btn btn-primary btn-lg btn-block" id="signIn">Register</button>
+              </div>
+            </form>
+
+
+          </div>
+          <div class="modal-footer">
+            <div class="col-md-12">
+              <button class="btn" data-dismiss="modal" aria-hidden="true">Cancel</button>
+            </div>  
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Prompt login dialog modal end -->
+
+
+    <div class="modal fade" id="dealModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="text-center">Attention</h1>
+          </div>
+          <div class="modal-body">
+            <p>It will cost you credits.</p>
+            <p>Are you sure to exchange this item?</p>
+          </div>
+          <div class="modal-footer">
+            <div class="col-md-12">
+              <button class="btn btn-info">Confirm</button>
+              <button class="btn" data-dismiss="modal" aria-hidden="true">Cancel</button>
+            </div>  
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- modal end -->    
+  </body>
+    <script src="http://code.jquery.com/jquery.js"></script>
+    <script src="../../js/bootstrap.js"></script>
+
+</html>

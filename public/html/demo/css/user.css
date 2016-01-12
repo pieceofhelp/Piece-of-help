@@ -1,0 +1,305 @@
+.holder{
+	width: 150px;
+	height: 150px;
+	display:block; 
+	margin:auto;
+}
+.searchbar{
+	text-align: center;
+	margin-bottom: 8px;
+	margin-top: 8px; 
+}
+.modify{
+	margin-top: 10px;
+}
+.insertflag{
+	text-align: center;
+}
+.hide{
+	font-size: 0; /* 文字大小歸零 */
+	display:block; /* 定義為區塊元素 */
+	line-height: 0; /* 行高歸零 */
+	overflow: hidden; /* 溢出隱藏 */
+	text-indent: -9999px;
+}
+.block{
+	border: 2px solid #dde;
+
+}
+.fix_block{
+	width: 300px;
+	height: 280px;
+	display: inline-block;
+/*	padding-left: -5px;
+	padding-right: -5px;*/
+}
+.navbar-top {
+  background-color: #2f4154;
+}
+.navbar-top .navbar-brand {
+  color: #ffffff;
+}
+.navbar-top .navbar-brand:hover,
+.navbar-top .navbar-brand:focus {
+  color: #ff7575;
+  background-color: transparent;
+}
+.navbar-top .navbar-toggle:before {
+  color: #ffffff;
+}
+.navbar-top .navbar-toggle:hover,
+.navbar-top .navbar-toggle:focus {
+  background-color: transparent;
+}
+.navbar-top .navbar-toggle:hover:before,
+.navbar-top .navbar-toggle:focus:before {
+  color: #ff7575;
+}
+.navbar-top .navbar-collapse {
+  border-color: #2f4154;
+  border-width: 2px;
+}
+.navbar-top .navbar-nav > li > a {
+  color: #ffffff;
+}
+.navbar-top .navbar-nav > li > a:hover,
+.navbar-top .navbar-nav > li > a:focus {
+  color: #ff7575;
+  background-color: transparent;
+}
+.navbar-top .navbar-nav > .active > a,
+.navbar-top .navbar-nav > .active > a:hover,
+.navbar-top .navbar-nav > .active > a:focus {
+  color: #ffffff;
+  background-color: #ff7575;
+}
+.navbar-top .navbar-nav > .disabled > a,
+.navbar-top .navbar-nav > .disabled > a:hover,
+.navbar-top .navbar-nav > .disabled > a:focus {
+  color: #444444;
+  background-color: transparent;
+}
+.navbar-top .navbar-nav > .dropdown > a:hover .caret,
+.navbar-top .navbar-nav > .dropdown > a:focus .caret {
+  border-top-color: #ff7575;
+  border-bottom-color: #ff7575;
+}
+.navbar-top .navbar-nav > .open > a,
+.navbar-top .navbar-nav > .open > a:hover,
+.navbar-top .navbar-nav > .open > a:focus {
+  background-color: #ff7575;
+  color: #ffffff;
+  border-left-color: transparent;
+}
+.navbar-top .navbar-nav > .open > a .caret,
+.navbar-top .navbar-nav > .open > a:hover .caret,
+.navbar-top .navbar-nav > .open > a:focus .caret {
+  border-top-color: #ffffff;
+  border-bottom-color: #ffffff;
+}
+.navbar-top .navbar-nav > .dropdown > a .caret {
+  border-top-color: #4b6075;
+  border-bottom-color: #4b6075;
+}
+.navbar-top .navbar-nav > .open > .dropdown-arrow {
+  border-top-color: #34495e;
+  border-bottom-color: #34495e;
+}
+.navbar-top .navbar-nav > .open > .dropdown-menu {
+  background-color: #34495e;
+  padding: 3px 4px;
+}
+.navbar-top .navbar-nav > .open > .dropdown-menu > li > a {
+  color: #e1e4e7;
+  border-radius: 4px;
+  padding: 6px 9px;
+}
+.navbar-top .navbar-nav > .open > .dropdown-menu > li > a:hover,
+.navbar-top .navbar-nav > .open > .dropdown-menu > li > a:focus {
+  color: #ffffff;
+  background-color: #ff7575;
+}
+.navbar-top .navbar-nav > .open > .dropdown-menu > .divider {
+  background-color: #2f4154;
+  height: 2px;
+  margin-left: -4px;
+  margin-right: -4px;
+}
+@media (max-width: 767px) {
+  .navbar-top .navbar-nav > li > a {
+    border-left-width: 0;
+  }
+  .navbar-top .navbar-nav .open .dropdown-menu > li > a {
+    color: #ffffff;
+  }
+  .navbar-top .navbar-nav .open .dropdown-menu > li > a:hover,
+  .navbar-top .navbar-nav .open .dropdown-menu > li > a:focus {
+    color: #ff7575;
+    background-color: transparent;
+  }
+  .navbar-top .navbar-nav .open .dropdown-menu > .active > a,
+  .navbar-top .navbar-nav .open .dropdown-menu > .active > a:hover,
+  .navbar-top .navbar-nav .open .dropdown-menu > .active > a:focus {
+    color: #ffffff;
+    background-color: #ff7575;
+  }
+  .navbar-top .navbar-nav .open .dropdown-menu > .disabled > a,
+  .navbar-top .navbar-nav .open .dropdown-menu > .disabled > a:hover,
+  .navbar-top .navbar-nav .open .dropdown-menu > .disabled > a:focus {
+    color: #444444;
+    background-color: transparent;
+  }
+  .navbar-top .navbar-nav .dropdown-menu .divider {
+    background-color: #2f4154;
+  }
+}
+.navbar-top .navbar-form .form-control {
+  color: #536a81;
+  border-color: transparent;
+  background-color: #293a4a;
+}
+.navbar-top .navbar-form .form-control:-moz-placeholder {
+  color: #536a81;
+}
+.navbar-top .navbar-form .form-control::-moz-placeholder {
+  color: #536a81;
+  opacity: 1;
+}
+.navbar-top .navbar-form .form-control:-ms-input-placeholder {
+  color: #536a81;
+}
+.navbar-top .navbar-form .form-control::-webkit-input-placeholder {
+  color: #536a81;
+}
+.navbar-top .navbar-form .form-control.placeholder {
+  color: #536a81;
+}
+.navbar-top .navbar-form .form-control:focus {
+  border-color: #ff7575;
+  color: #ff7575;
+}
+.navbar-top .navbar-form .btn {
+  color: #ffffff;
+  background-color: #ff7575;
+}
+.navbar-top .navbar-form .btn:hover,
+.navbar-top .navbar-form .btn:focus,
+.navbar-top .navbar-form .btn:active,
+.navbar-top .navbar-form .btn.active,
+.open .dropdown-toggle.navbar-top .navbar-form .btn {
+  color: #ffffff;
+  background-color: #48c9b0;
+  border-color: #48c9b0;
+}
+.navbar-top .navbar-form .btn:active,
+.navbar-top .navbar-form .btn.active,
+.open .dropdown-toggle.navbar-top .navbar-form .btn {
+  background: #16a085;
+  border-color: #16a085;
+}
+.navbar-top .navbar-form .btn.disabled,
+.navbar-top .navbar-form .btn[disabled],
+fieldset[disabled] .navbar-top .navbar-form .btn,
+.navbar-top .navbar-form .btn.disabled:hover,
+.navbar-top .navbar-form .btn[disabled]:hover,
+fieldset[disabled] .navbar-top .navbar-form .btn:hover,
+.navbar-top .navbar-form .btn.disabled:focus,
+.navbar-top .navbar-form .btn[disabled]:focus,
+fieldset[disabled] .navbar-top .navbar-form .btn:focus,
+.navbar-top .navbar-form .btn.disabled:active,
+.navbar-top .navbar-form .btn[disabled]:active,
+fieldset[disabled] .navbar-top .navbar-form .btn:active,
+.navbar-top .navbar-form .btn.disabled.active,
+.navbar-top .navbar-form .btn[disabled].active,
+fieldset[disabled] .navbar-top .navbar-form .btn.active {
+  background-color: #ff7575;
+  border-color: #ff7575;
+}
+.navbar-top .navbar-form .input-group-btn .btn {
+  border-color: transparent;
+  background-color: #293a4a;
+  color: #526a82;
+}
+.navbar-top .navbar-form .input-group.focus .form-control,
+.navbar-top .navbar-form .input-group.focus .input-group-btn .btn {
+  border-color: #ff7575;
+  color: #ff7575;
+}
+@media (max-width: 767px) {
+  .navbar-top .navbar-form {
+    border-color: #2f4154;
+    border-width: 2px 0;
+  }
+}
+.navbar-top .navbar-text {
+  color: #ffffff;
+}
+.navbar-top .navbar-text a {
+  color: #ffffff;
+}
+.navbar-top .navbar-text a:hover,
+.navbar-top .navbar-text a:focus {
+  color: #ff7575;
+}
+.navbar-top .navbar-btn {
+  color: #ffffff;
+  background-color: #ff7575;
+}
+.navbar-top .navbar-btn:hover,
+.navbar-top .navbar-btn:focus,
+.navbar-top .navbar-btn:active,
+.navbar-top .navbar-btn.active,
+.open .dropdown-toggle.navbar-top .navbar-btn {
+  color: #ffffff;
+  background-color: #48c9b0;
+  border-color: #48c9b0;
+}
+.navbar-top .navbar-btn:active,
+.navbar-top .navbar-btn.active,
+.open .dropdown-toggle.navbar-top .navbar-btn {
+  background: #16a085;
+  border-color: #16a085;
+}
+.navbar-top .navbar-btn.disabled,
+.navbar-top .navbar-btn[disabled],
+fieldset[disabled] .navbar-top .navbar-btn,
+.navbar-top .navbar-btn.disabled:hover,
+.navbar-top .navbar-btn[disabled]:hover,
+fieldset[disabled] .navbar-top .navbar-btn:hover,
+.navbar-top .navbar-btn.disabled:focus,
+.navbar-top .navbar-btn[disabled]:focus,
+fieldset[disabled] .navbar-top .navbar-btn:focus,
+.navbar-top .navbar-btn.disabled:active,
+.navbar-top .navbar-btn[disabled]:active,
+fieldset[disabled] .navbar-top .navbar-btn:active,
+.navbar-top .navbar-btn.disabled.active,
+.navbar-top .navbar-btn[disabled].active,
+fieldset[disabled] .navbar-top .navbar-btn.active {
+  background-color: #ff7575;
+  border-color: #ff7575;
+}
+.black{
+	color: black;
+}
+.table_width{
+  width: 150px;
+}
+.table_width_lg{
+  width: 300px;
+}
+.table_width_sm{
+  width: 10px;
+}
+.table_width_md{
+  width: 100px;
+}
+.table_height{
+  vertical-align: center;
+  height: 37px;
+}
+.red{
+  color: #c71585;
+}
+.flow{
+  color: yellow;
+}

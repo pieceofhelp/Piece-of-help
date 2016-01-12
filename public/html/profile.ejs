@@ -1,13 +1,15 @@
+
 <!DOCTYPE html>
 <html>
   <head>
+    <meta charset="utf-8">  
     <title>Piece of help</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Bootstrap -->
-    <link href="../../css/bootstrap.css" rel="stylesheet" media="screen">
-    <link href="../../css/flat-ui.css" rel="stylesheet" media="screen">
-    <link href="../../css/selfdefine.css" rel="stylesheet" media="screen">
-    <link href="../../css/user.css" rel="stylesheet" media="screen">
+    <link href="../css/bootstrap.css" rel="stylesheet" media="screen">
+    <link href="../css/flat-ui.css" rel="stylesheet" media="screen">
+    <link href="../css/selfdefine.css" rel="stylesheet" media="screen">
+    <link href="../css/user.css" rel="stylesheet" media="screen">
     <!-- <link href="../css/flat-ui.css" rel="stylesheet" media="screen"> -->
     <nav class="navbar navbar-top navbar-fixed-top" role="navigation">
       <div class="container-fluid">
@@ -18,35 +20,40 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <h4 class="logo"><a href="home">Piece of help</a></h4>
+          <h4 class="logo"><a href="http://188.166.220.35:3000/home">Piece of help</a></h4>
         </div>
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav navbar-right">
-            <li><a href="../home">幫助</a></li>
-            <li><a href="../upload">求救</a></li>
-            <% if(!user){ %>
-            <li data-toggle="modal" data-target="#myModal"><a href="#">Login</a></li>
-            <% } else { %>
+            <li><a href="http://188.166.220.35:3000/home">幫助</a></li>
+            <li><a href="http://188.166.220.35:3000/upload">求救</a></li>
+            
             <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown"><%= user.name%> <b class="caret"></b></a>
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">admin <b class="caret"></b></a>
               <ul class="dropdown-menu">
-                <li><a href="../profile/<%= user.id%>">Profile</a></li>
+                <li><a href="../profile/admin">Profile</a></li>
                 <li><a href="../user/logout">Logout</a></li>
               </ul>
-            </li>
-            <% } %>
+            </li>            
           </ul>
         </div>
       </div>
     </nav>
   </head>
+  <style>
+    .avator{
+    height: 400px;
+    width: 400px;    
+    background: url("../images/hero1.jpg") no-repeat center ;
+    display: inline-block;    
+    }
+          </style>  
   <body>
 
     <div class="container-fluid">
       <!--Content and sidebar-->
       <div class="row row-offcanvas row-offcanvas-left">
       <div class="col-sm-12 col-md-12 main content">
-        <h2>User Profile</h2>
+        <h2>英雄簡介</h2>
       <div class="container-fluid">
         <div class="col-sm-5">
         <table class="table table-striped">
@@ -57,101 +64,96 @@
           </tr>
           <tr>
             <td>您的帳號</td>
-            <td><%= file.id %></td>
+            <td>admin</td>
           </tr>
           <tr>
             <td>您的暱稱</td>
-            <td><%= file.name %></td>
+            <td>admin</td>
           </tr>
           <tr>
             <td>您的連絡電話</td>
-            <td><%= file.tel %></td>
+            <td>+886987032398</td>
           </tr>
           <tr>
             <td>您的連絡Email</td>
-            <td><%= file.email %></td>
+            <td>u10116004@go.utaipei.edu.tw</td>
           </tr>
           <tr>
-            <td>您所擁有的Credit</td>
-            <td><%= file.credit %></td>
+            <td>您成功幫助的次數</td>
+            <td>0</td>
+          </tr>
+           <tr>
+            <td>擁有愛心</td>
+            <td>0</td>
+          </tr>
+          <tr>
+            <td>稱號</td>
+            <td>無名英雄</td>
           </tr>
         </tbody>
       </table>
       
       </div>
-
-      <div class="col-sm-7">
-        <table class="table table-striped">
-        <tbody>
-          <tr>
-            <th class="table_width">英雄積分</th>
-            <th></th>
-            <th></th>
-          </tr>
-          <tr>
-            <td>英雄等級</td>
-            <th class="table_width_sm">5</th>
-            <td class="table_height">
-              <div class="progress progress-striped">
-                <div class="progress-bar progress-bar-warning" style="width: 50%;"></div>
+  
+      <div class="col-sm-4">
+        <div class="avator">
+                  
               </div>
-            </td>
-          </tr>
-          <tr>
-            <td>貢獻度</td>
-            <% if(!file.donate){ %>
-              <th class="table_width_sm">0</th>
-              <td class="table_height">
-              <div class="progress progress-striped">
-                <div class="progress-bar progress-bar-success" style="width: 0%;"></div>
-              </div>
-            </td>
-            <% }else{ %>
-            <th class="table_width_sm"><%= file.donate %></th>
-            <td class="table_height">
-              <div class="progress progress-striped">
-                <div class="progress-bar progress-bar-success" style="width: <%= file.donate/10 %>0%;"></div>
-              </div>
-            </td>
-          </tr>
-          <% } %>
-          <tr>
-            <td>物資貢獻度</td>
-            <th class="table_width_sm"><%= items.length %></th>
-            <td class="table_height">
-              <div class="progress progress-striped">
-                <div class="progress-bar progress-bar-success" style="width: <%= items.length*10 %>%;"></div>
-              </div>              
-            </td>
-          </tr>
-        </tbody>
-      </table>
       </div>
+      
+      
       <table class="table table-striped">
         <tbody>
           <tr>
-            <th>求救管理</th>
+              <th><h2>求救中</h2></th>
             <th></th>
             <th></th>
             <th></th>
             <th></th>
           </tr>
           <tr>
-            <th class="table_width_lg">求救案例</th>
-            <th>人數</th>
-            <th>提供愛心</th>
-            <th class="table_width_md">修改</th>
+           <th class="table_width_lg">求救</th>
+            <th>懸賞愛心</th>
+            <th class="table_width_md">編輯</th>
             <th class="table_width_md">刪除</th>
           </tr>
-          <% items.forEach(function(item){ %>
+          
             <tr>
-              <td><%= item.item_name %></td>
-              <td><%= item.amount %></td>
-              <td><%= item.credit %></td>
-              <td><span class="glyphicon glyphicon-pencil"></td>
-              <td><a href="/destroy/<%= item._id %>" class="glyphicon glyphicon-trash"></a>  </td>
+              <td>壓力很大</td>
+              <td>40</td>
+              <td><span class="glyphicon glyphicon-pencil"></span></td>
+              <td><a href="/destroy/5689e538ef407aaf1d500522" class="glyphicon glyphicon-trash"></a>  </td>
             </tr>
-          <% }) %>
+          
+        </tbody>
+      </table>
+<br>  
+<!--case    -->
+    <table class="table table-striped">
+        <tbody>
+          <tr>
+            <th><h2>成功救援</h2></th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+          </tr>
+          <tr>
+            <th class="table_width_lg">救援案例</th>
+            <th>獲得懸賞</th>
+            <th class="table_width_md">評價</th>
+            <th class="table_width_md">刪除</th>
+          </tr>
+          
+            <tr>
+<!--
+              <td>教材教法需要聽眾</td>
+              <td>20</td>
+                <td>很謝謝您的耐心和細心，讓我有勇氣在面對試教 :D  </td>
+              <td><a href="/destroy/5689e538ef407aaf1d500522" class="glyphicon glyphicon-trash"></a>  </td>
+-->
+            </tr>
+          
         </tbody>
       </table>
 
